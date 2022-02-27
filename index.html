@@ -9,7 +9,6 @@
   </head>
 
   <body class="page">
-
     <header class="header page__header">
       <a href="#">
         <img src="./images/mesto-logo.svg" alt="Mesto лого" class="header__logo">
@@ -87,15 +86,16 @@
       <div class="pop-up__container">
         <h1 class="pop-up__title">Редактировать профиль</h1>
         <form class="edit-form">
-          <input type="text" required id="name" name="name" placeholder="Имя" class="edit-form__item">
-          <input type="text" required id="activity" name="activity" placeholder="О себе" class="edit-form__item">
+          <input type="text" required id="name" placeholder="Имя" class="edit-form__item">
+          <input type="text" required id="activity" placeholder="О себе" class="edit-form__item">
+          <button class="save-btn" type="submit">
+            <p class="btn-title">Сохранить</p>
+          </button>
         </form>
-        <button class="save-btn">
-          <p class="btn-title">Сохранить</p>
-        </button>
+        
       </div>
     </div>
-
+    <script src="./scripts/index.js"></script>
   </body>
 
 </html>

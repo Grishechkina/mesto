@@ -1,6 +1,6 @@
 .profile__info {
-  margin-right: calc(100% - 120px - 30px - 336px - 150px); /*//244 */
-  padding-top: 21px;
+  margin-right: calc(100% - 120px - 30px - 336px - 150px);
+  padding-top: 12px;
   width: 336px;
   display: flex;
   flex-wrap: wrap;
