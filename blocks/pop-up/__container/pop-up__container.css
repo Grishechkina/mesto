@@ -1,0 +1,22 @@
+.pop-up__container {
+  width: 430px;
+  height: 330px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 10px;
+  display: block;
+  padding: 34px 36px;
+  position: fixed;
+  top: calc((100% - 330px) / 2);
+  left: calc((100% - 430px) / 2);
+}
+
+@media (max-width: 521px) {
+  .pop-up__container {
+    padding: 25px;
+    width: 282px;
+    height: 322px;
+    top: calc((100% - 322px) / 2);
+    left: calc((100% - 282px) / 2);
+  }
+}
