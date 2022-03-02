@@ -13,27 +13,26 @@
       <a href="#">
         <img src="./images/mesto-logo.svg" alt="Mesto лого" class="header__logo">
       </a>
-      <hr class="header__line">
     </header>
 
     <main class="content page__content">
 
       <section class="profile">
-        <img src="./images/Avatar.png" alt="Ава Жак-Ив Кусто" class="profile__avatar">
+        <img src="./images/Avatar.png" alt="Аватарка пользователя" class="profile__avatar">
         <div class="profile__info">
-          <p class="profile__name">Жак-Ив Кусто</p>
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button class="profile__edit-btn"></button>
           <p class="profile__activity">Исследователь океана</p>
         </div>
         <button class="profile__add-btn"></button>
       </section>
 
-      <section class="elements">
-        <ul class="cards">
+      <section class="cards">
+        <ul class="cards__list">
           <li class="card">
             <img src="./images/gelendzhik.jpg" alt="Геленджик" class="card__photo">
             <div class="card__place">
-              <p class="card__title">Геленджик</p>
+              <h2 class="card__title">Геленджик</h2>
               <button class="card__like-btn"></button>
             </div>
 
@@ -41,35 +40,35 @@
           <li class="card">
             <img src="./images/kabardinka.jpg" alt="Кабардинка" class="card__photo">
             <div class="card__place">
-              <p class="card__title">Кабардинка</p>
+              <h2 class="card__title">Кабардинка</h2>
               <button class="card__like-btn"></button>
             </div>
           </li>
           <li class="card">
             <img src="./images/murmansk.jpg" alt="Мурманск" class="card__photo">
             <div class="card__place">
-              <p class="card__title">Мурманск</p>
+              <h2 class="card__title">Мурманск</h2>
               <button class="card__like-btn"></button>
             </div>
           </li>
           <li class="card">
             <img src="./images/mytishchi.jpg" alt="Мытищи" class="card__photo">
             <div class="card__place">
-              <p class="card__title">Мытищи</p>
+              <h2 class="card__title">Мытищи</h2>
               <button class="card__like-btn"></button>
             </div>
           </li>
           <li class="card">
             <img src="./images/nizhniy-novgorod.jpg" alt="Нижний Новгород" class="card__photo">
             <div class="card__place">
-              <p class="card__title">Нижний Новгород</p>
+              <h2 class="card__title">Нижний Новгород</h2>
               <button class="card__like-btn"></button>
             </div>
           </li>
           <li class="card">
             <img src="./images/sevastopol.jpg" alt="Севастополь" class="card__photo">
             <div class="card__place">
-              <p class="card__title">Севастополь</p>
+              <h2 class="card__title">Севастополь</h2>
               <button class="card__like-btn"></button>
             </div>
           </li>
@@ -82,17 +81,16 @@
     </footer>
 
     <div class="pop-up">
-      <button class="close-btn"></button>
       <div class="pop-up__container">
-        <h1 class="pop-up__title">Редактировать профиль</h1>
-        <form class="edit-form">
-          <input type="text" required id="name" placeholder="Имя" class="edit-form__item">
-          <input type="text" required id="activity" placeholder="О себе" class="edit-form__item">
-          <button class="save-btn" type="submit">
-            <p class="btn-title">Сохранить</p>
+        <button class="pop-up__close-btn"></button>
+        <h2 class="pop-up__title">Редактировать профиль</h2>
+        <form class="pop-up__edit-form edit-form" name="profile-edit-form">
+          <input type="text" required name="name" placeholder="Имя" class="edit-form__item">
+          <input type="text" required name="activity" placeholder="О себе" class="edit-form__item">
+          <button class="edit-form__save-btn" type="submit">
+            Сохранить
           </button>
         </form>
-        
       </div>
     </div>
     <script src="./scripts/index.js"></script>

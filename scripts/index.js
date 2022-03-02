@@ -1,35 +1,34 @@
-let profile = document.querySelector('.profile');
-let profileName = profile.querySelector('.profile__name');
-let profileActivity = profile.querySelector('.profile__activity');
-let editBtn = profile.querySelector('.profile__edit-btn');
+const profile = document.querySelector('.profile');
+const profileName = profile.querySelector('.profile__name');
+const profileActivity = profile.querySelector('.profile__activity');
+const editBtn = profile.querySelector('.profile__edit-btn');
 
-let editForm = document.querySelector('.edit-form');
-let editFormName = document.getElementById('name');
-let editFormActivity = document.getElementById('activity');
+const popUp = document.querySelector('.pop-up');
 
-let closeBtn = document.querySelector('.close-btn');
-let saveBtn = editForm.querySelector('.save-btn')
+const editForm = document.querySelector('.pop-up__edit-form');
+const editFormName = editForm.name;
+const editFormActivity = editForm.activity;
 
-let popUp = document.querySelector('.pop-up');
+const closeBtn = popUp.querySelector('.pop-up__close-btn');
+const saveBtn = editForm.querySelector('.save-btn');
 
-editFormName.value = profileName.textContent
-editFormActivity.value = profileActivity.textContent
-
-function formSubmitHandler(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  profileName.textContent = evt.target[0].value;
-  profileActivity.textContent = evt.target[1].value;
-  closeForm();
+  profileName.textContent = editFormName.value;
+  profileActivity.textContent = editFormActivity.value;
+  closeEditProfilePopup();
 }
 
-function closeForm() {
-  popUp.classList.remove('pop-up_opened')
+function closeEditProfilePopup() {
+  popUp.classList.remove('pop-up_opened');
 }
 
-function openForm() {
-  popUp.classList.add('pop-up_opened')
+function openEditProfilePopup() {
+  popUp.classList.add('pop-up_opened');
+  editFormName.value = profileName.textContent;
+  editFormActivity.value = profileActivity.textContent;
 }
 
-editBtn.addEventListener('click', openForm);
-closeBtn.addEventListener('click', closeForm);
-editForm.addEventListener('submit', formSubmitHandler);
+editBtn.addEventListener('click', openEditProfilePopup);
+closeBtn.addEventListener('click', closeEditProfilePopup);
+editForm.addEventListener('submit', handleProfileFormSubmit);

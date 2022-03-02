@@ -4,11 +4,11 @@
   margin-bottom: 36px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 400px) {
   .header__logo {
     width: 103px;
     height: 24px;
     margin-bottom: 31px;
-    padding-left: 8px;
+    padding-left: 27px;
   }
 }
