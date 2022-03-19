@@ -1,4 +1,4 @@
-.edit-form__save-btn {
+.form__save-btn {
   border: 0;
   border-radius: 2px;
   background-color: #000;
@@ -11,12 +11,12 @@
   padding: 14px 0;
 }
 
-.edit-form__save-btn:hover {
+.form__save-btn:hover {
   opacity: 0.8;
 }
 
 @media (max-width: 400px) {
-  .edit-form__save-btn {
+  .form__save-btn {
     font-size: 14px;
     line-height: 17px;
   }
