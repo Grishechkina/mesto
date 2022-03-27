@@ -50,12 +50,28 @@ const cardsList = document.querySelector('.cards__list');
 
 function openPopUp(popUp) {
   popUp.classList.add('pop-up_opened');
+  document.addEventListener('keydown', closeByEsc);
+  popUp.addEventListener('click', closeByOverlay);
 }
 
 function closePopUp(popUp) {
   popUp.classList.remove('pop-up_opened');
+  document.removeEventListener('keydown', closeByEsc);
+  popUp.removeEventListener('click', closeByOverlay);
 }
 
+function closeByEsc(evt) {
+  if (evt.key === 'Escape') {
+    const popUp = document.querySelector('.pop-up_opened');
+    closePopUp(popUp);
+  }
+}
+function closeByOverlay(evt) {
+  if(evt.target.classList.contains('pop-up_opened')) {
+    const popUp = document.querySelector('.pop-up_opened');
+    closePopUp(popUp);
+  }
+}
 function openEditProfilePopUp() {
   editFormName.value = profileName.textContent;
   editFormActivity.value = profileActivity.textContent;
@@ -63,6 +79,7 @@ function openEditProfilePopUp() {
 }
 
 function handleProfileFormSubmit(evt) {
+  console.log('here')
   evt.preventDefault();
   profileName.textContent = editFormName.value;
   profileActivity.textContent = editFormActivity.value;
@@ -110,8 +127,15 @@ function addCard(card) {
 }
 
 initialCards.forEach(card => addCard(card));
-  
 closeBtns.forEach(btn => btn.addEventListener('click', (evt) => closePopUp(evt.target.closest('.pop-up'))));
+enabledValidation({
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__save-btn',
+  disabledButtonClass: 'form__save-btn_disabled',
+  inputErrorClass: 'form__input_type_error',
+  errorClass: 'form__input-error'
+})
 
 editBtn.addEventListener('click', openEditProfilePopUp);
 editForm.addEventListener('submit', handleProfileFormSubmit);
