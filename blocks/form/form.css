@@ -1,7 +1,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   min-height: calc(330px - 34px * 2 - 45px - 29px);
 }
 
