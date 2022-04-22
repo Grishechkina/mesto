@@ -1,13 +1,12 @@
-import * as popUp from './popUp.js'
+import {findPopUp, findPopUpElement, openPopUp} from './popUp.js'
 export class Card {
-
-  imgPopUp = popUp.findPopUp('.img-pop-up');
-  imgPopUpPhoto = popUp.findPopUpElement(this.imgPopUp,'.img-pop-up__photo');
-  imgPopUpTitle = popUp.findPopUpElement(this.imgPopUp,'.img-pop-up__title');
 
   constructor(card, cardSelector) {
     this.card = card;
     this.cardSelector = cardSelector;
+    this.imgPopUp = findPopUp('.img-pop-up');
+    this.imgPopUpPhoto = findPopUpElement(this.imgPopUp,'.img-pop-up__photo');
+    this.imgPopUpTitle = findPopUpElement(this.imgPopUp,'.img-pop-up__title');
   }
 
   _getTemplate() {
@@ -34,7 +33,7 @@ export class Card {
     this.imgPopUpPhoto.src = this.card.link;
     this.imgPopUpPhoto.alt = this.card.name;
     this.imgPopUpTitle.textContent = this.card.name;
-    popUp.openPopUp(this.imgPopUp);
+    openPopUp(this.imgPopUp);
   }
 
   createCard() {

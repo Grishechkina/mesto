@@ -1,6 +1,6 @@
-import {Card} from './Card.js'
-import {FormValidator} from './FormValidator.js'
-import * as popUp from './popUp.js'
+import { Card } from './Card.js'
+import { FormValidator } from './FormValidator.js'
+import { openPopUp, closePopUp } from './popUp.js'
 const initialCards = [
   {
     name: 'Геленджик',
@@ -39,12 +39,10 @@ const editingPopUp = document.querySelector('.edit-pop-up');
 const editingForm = document.querySelector('.pop-up__edit-form');
 const editingFormName = editingForm.name;
 const editingFormActivity = editingForm.activity;
-const editingSaveBtn = editingForm.querySelector('.form__save-btn');
 
 const addingCardBtn = profile.querySelector('.profile__add-btn');
 const addingCardPopUp = document.querySelector('.add-card-pop-up');
 const addingCardForm = document.querySelector('.pop-up__add-card-form');
-const addingSaveBtn = addingCardForm.querySelector('.form__save-btn');
 
 const cardsList = document.querySelector('.cards__list');
 const forms = [];
@@ -54,47 +52,50 @@ function openEditingProfilePopUp() {
   editForm.clearForm()
   editingFormName.value = profileName.textContent;
   editingFormActivity.value = profileActivity.textContent;
-  
-  popUp.openPopUp(editingPopUp);
+
+  openPopUp(editingPopUp);
 }
 
 function openAddingCardPopUp() {
   const addingCardForm = forms.find(item => item.form.classList.contains('pop-up__add-card-form'))
   addingCardForm.clearForm()
 
-  popUp.openPopUp(addingCardPopUp);
+  openPopUp(addingCardPopUp);
 }
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = editingFormName.value;
   profileActivity.textContent = editingFormActivity.value;
-  popUp.closePopUp(editingPopUp);
+  closePopUp(editingPopUp);
 }
 
 function handleAddingCardFormSubmit(evt) {
   evt.preventDefault();
-  const card = {name: addingCardForm.place.value, link: addingCardForm.link.value};
+  const card = { name: addingCardForm.place.value, link: addingCardForm.link.value };
   addCard(card);
-  popUp.closePopUp(addingCardPopUp);
+  closePopUp(addingCardPopUp);
   addingCardForm.reset();
 }
 
-function addCard(card) {
+function initCard(card) {
   const cardItem = new Card(card, '#card-template')
   const cardElement = cardItem.createCard();
+  return cardElement
+}
+
+function addCard(card) {
+  const cardElement = initCard(card);
   cardsList.prepend(cardElement);
 }
 
 function renderCards() {
   initialCards.forEach((item) => {
-    const card = new Card(item, '#card-template')
-    const cardElement = card.createCard();
-    cardsList.prepend(cardElement);
+    addCard(item)
   });
 };
+
 function setValidation() {
-  let formsEl = document.querySelectorAll('.form');
   const configuration = {
     formSelector: '.form',
     inputSelector: '.form__input',
@@ -103,12 +104,17 @@ function setValidation() {
     inputErrorClass: 'form__input_type_error',
     errorClass: 'form__input-error'
   }
-  formsEl.forEach((item, idx) => {
-    forms.push(new FormValidator(configuration, item))
-    forms[idx].enabledValidation();
-  });
+
+  const editFormValidator = new FormValidator(configuration, editingForm);
+  const cardFormValidator = new FormValidator(configuration, addingCardForm)
+
+  forms.push(editFormValidator, cardFormValidator)
+
+  editFormValidator.enabledValidation();
+  cardFormValidator.enabledValidation();
 }
-closingBtns.forEach(btn => btn.addEventListener('click', (evt) => popUp.closePopUp(evt.target.closest('.pop-up'))));
+
+closingBtns.forEach(btn => btn.addEventListener('click', (evt) => closePopUp(evt.target.closest('.pop-up'))));
 
 editingBtn.addEventListener('click', openEditingProfilePopUp);
 editingForm.addEventListener('submit', handleProfileFormSubmit);
