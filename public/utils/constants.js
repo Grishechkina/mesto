@@ -1,27 +1,34 @@
+import gelek from '../images/gelendzhik.jpg'
+import kabar from '../images/kabardinka.jpg'
+import murm from '../images/murmansk.jpg'
+import myti from '../images/mytishchi.jpg'
+import nino from '../images/nizhniy-novgorod.jpg'
+import sevas from '../images/sevastopol.jpg'
+
 export const initialCards = [
   {
     place: 'Геленджик',
-    link: "./images/gelendzhik.jpg"
+    link: gelek
   },
   {
     place: 'Кабардинка',
-    link: './images/kabardinka.jpg'
+    link: kabar
   },
   {
     place: 'Мурманск',
-    link: './images/murmansk.jpg'
+    link: murm
   },
   {
     place: 'Мытищи',
-    link: './images/mytishchi.jpg'
+    link: myti
   },
   {
     place: 'Нижний Новгород',
-    link: './images/nizhniy-novgorod.jpg'
+    link: nino
   },
   {
     place: 'Севастополь',
-    link: './images/sevastopol.jpg'
+    link: sevas
   },
 ];
 
