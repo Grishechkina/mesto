@@ -1,6 +1,5 @@
 .pop-up__container {
   width: 430px;
-  height: 330px;
   box-sizing: border-box;
   background: #fff;
   border-radius: 10px;
@@ -13,6 +12,5 @@
   .pop-up__container {
     padding: 24px 25px 25px 22px;
     width: 282px;
-    height: 322px;
   }
 }
