@@ -128,6 +128,7 @@ function openeditAvatarPopUp() {
 }
 
 function openEditingProfilePopUp() {
+  formValidators['profile-edit-form'].clearForm()
   popupEditProfile.openPopUp()
 }
 
