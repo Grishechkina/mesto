@@ -6,11 +6,10 @@ export default class UserInfo {
   }
 
   getUserInfo() {
-    return { profileName: this.profileName.textContent, profileActivity: this.profileActivity.textContent }
+    return { name: this.profileName.textContent, activity: this.profileActivity.textContent }
   }
 
   setUserInfo(newInfo) {
-    console.log(newInfo)
     this.userInfo = newInfo
     this.profileName.textContent = newInfo.name
     this.profileActivity.textContent = newInfo.about
