@@ -108,7 +108,7 @@ const handleCardLike = (cardRef, isLiked) => {
   .then(res => {
     cardRef.card.likes = res.likes
     cardRef.calculateLikes()
-    cardRef.likeBtn.classList.toggle('card__like-btn_active')
+    cardRef.toggleLike()
   })
   .catch(err => console.log(err))
 }

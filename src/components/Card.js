@@ -43,6 +43,10 @@ export default class Card {
     }
   }
 
+  toggleLike() {
+    this.likeBtn.classList.toggle('card__like-btn_active')
+  }
+
   createCard() {
     this._element = this._getTemplate();
     this._setEventListeners();
