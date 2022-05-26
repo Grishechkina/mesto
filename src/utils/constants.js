@@ -12,7 +12,7 @@ export const addingCardBtn = profile.querySelector('.profile__add-btn');
 export const addingCardPopUp = document.querySelector('.add-card-pop-up');
 export const addingCardForm = document.querySelector('.pop-up__add-card-form');
 
-export const confirmPopUpBtn = document.querySelector('.confirm-pop-up').querySelector('.form__save-btn')
+export const confirmPopUpBtn = document.querySelector('.confirm-pop-up').querySelector('.classic-btn')
 
 export const editAvatarBtn = document.querySelector('.profile__overlay');
 export const editAvatarForm = document.querySelector('.pop-up__edit-avatar-form');

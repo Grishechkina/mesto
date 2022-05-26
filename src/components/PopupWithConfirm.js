@@ -5,7 +5,7 @@ export default class PopupWithConfirm extends Popup {
   constructor({ handleSaveBtnClick }, popupSelector) {
     super(popupSelector)
     this._handleSaveBtnClick = handleSaveBtnClick;
-    this._saveBtn = this.popup.querySelector('.form__save-btn')
+    this._saveBtn = this.popup.querySelector('.classic-btn')
     this._confirmDialog = this._confirmDialog.bind(this)
   }
 
@@ -21,7 +21,6 @@ export default class PopupWithConfirm extends Popup {
   }
 
   setEventListeners() {
-    console.log(this._handleSaveBtnClick)
     super.setEventListeners()
     this._saveBtn.addEventListener('click', this._confirmDialog)
   }
